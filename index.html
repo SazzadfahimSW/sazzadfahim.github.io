@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Sazzad Hossain — Software Engineer</title>
+<meta name="description" content="Muhammad Sazzad Hossain — full-stack software engineer building multi-tenant SaaS across .NET and the MERN stack, with Dynamics 365 and Azure experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A4A;          /* primary text / deep navy */
+    --navy:#1F3864;         /* brand navy (matches résumé) */
+    --paper:#F4F6F9;        /* cool paper background */
+    --surface:#FFFFFF;      /* cards */
+    --slate:#586173;        /* secondary text */
+    --hair:#D9DEE6;         /* hairline rules */
+    --brass:#9C7A4D;        /* single restrained accent */
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--brass);font-weight:500;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;background:rgba(244,246,249,.82);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--hair);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .mark{
+    font-family:"Cormorant",serif;font-weight:600;font-size:22px;letter-spacing:.04em;
+    color:var(--navy);display:inline-flex;align-items:center;gap:10px;
+  }
+  .mark span{
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    color:var(--slate);text-transform:uppercase;
+  }
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{
+    font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--slate);
+    padding:4px 0;position:relative;transition:color .2s;
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+  .nav-links a.active::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1px;background:var(--brass);
+  }
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--ink)}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 72px;border-bottom:1px solid var(--hair)}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{
+    font-family:"Cormorant",serif;font-weight:500;
+    font-size:clamp(46px,8vw,88px);line-height:1.02;letter-spacing:-.01em;color:var(--ink);
+  }
+  .hero h1 em{font-style:italic;color:var(--navy)}
+  .underline{
+    height:2px;background:var(--brass);width:0;margin:26px 0 30px;
+    animation:draw 1.1s cubic-bezier(.2,.7,.2,1) .25s forwards;
+  }
+  @keyframes draw{to{width:132px}}
+  .lede{font-size:clamp(18px,2.4vw,22px);max-width:620px;color:var(--slate);line-height:1.55}
+  .lede strong{color:var(--ink);font-weight:600}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .btn{
+    font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.02em;
+    padding:11px 20px;border:1px solid var(--ink);border-radius:2px;
+    transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--navy);border-color:var(--navy)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:46px;
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--slate);
+  }
+  .meta-row b{color:var(--ink);font-weight:500}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:80px 0;border-bottom:1px solid var(--hair)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:46px}
+  .sec-head h2{
+    font-family:"Cormorant",serif;font-weight:500;font-size:clamp(30px,4.5vw,44px);
+    color:var(--ink);letter-spacing:-.01em;line-height:1.1;
+  }
+  .sec-head .eyebrow{white-space:nowrap}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:64px;align-items:start}
+  .about-grid p{font-size:17.5px;color:var(--slate);margin-bottom:18px}
+  .about-grid p strong{color:var(--ink);font-weight:600}
+  .glance{border-left:1px solid var(--hair);padding-left:28px}
+  .glance .stat{padding:14px 0;border-bottom:1px solid var(--hair)}
+  .glance .stat:last-child{border-bottom:none}
+  .glance .num{font-family:"Cormorant",serif;font-size:40px;font-weight:600;color:var(--navy);line-height:1}
+  .glance .lbl{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--slate);margin-top:6px;letter-spacing:.04em}
+
+  /* ---------- WORK ---------- */
+  .work-list{display:flex;flex-direction:column;gap:24px}
+  .proj{
+    background:var(--surface);border:1px solid var(--hair);border-radius:4px;
+    padding:34px 36px;transition:transform .25s,box-shadow .25s,border-color .25s;
+  }
+  .proj:hover{transform:translateY(-3px);box-shadow:0 18px 40px -28px rgba(27,42,74,.4);border-color:#C3CAD6}
+  .proj-top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+  .proj-name{font-family:"Cormorant",serif;font-size:30px;font-weight:600;color:var(--ink);line-height:1.1}
+  .proj-role{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--brass);letter-spacing:.04em;white-space:nowrap}
+  .proj-sub{color:var(--slate);font-size:15px;margin:6px 0 18px}
+  .proj p{color:var(--slate);font-size:15.5px;margin-bottom:16px;max-width:64ch}
+  .proj p strong{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--slate);
+    border:1px solid var(--hair);border-radius:2px;padding:4px 10px;background:var(--paper);
+  }
+
+  /* ---------- CAPABILITIES ---------- */
+  .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px}
+  .cap h3{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--brass);margin-bottom:14px;font-weight:500}
+  .cap ul{list-style:none}
+  .cap li{padding:6px 0;border-bottom:1px solid var(--hair);font-size:15px;color:var(--ink)}
+  .cap li:last-child{border-bottom:none}
+
+  /* ---------- CREDENTIALS ---------- */
+  .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .cred{background:var(--surface);border:1px solid var(--hair);border-radius:4px;padding:28px 30px}
+  .cred .eyebrow{margin-bottom:14px}
+  .cred h4{font-family:"Cormorant",serif;font-size:23px;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:4px}
+  .cred p{color:var(--slate);font-size:14.5px}
+  .cred a.docref{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--navy);
+    border-bottom:1px solid var(--brass);padding-bottom:1px;
+  }
+  .cred a.docref:hover{color:var(--brass)}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:96px 0;border-bottom:none;text-align:center}
+  .contact .eyebrow{margin-bottom:20px}
+  .contact h2{font-family:"Cormorant",serif;font-weight:500;font-size:clamp(34px,6vw,60px);color:var(--ink);line-height:1.05;margin-bottom:14px}
+  .contact h2 a{color:var(--navy);border-bottom:2px solid var(--brass)}
+  .contact h2 a:hover{color:var(--brass)}
+  .contact .sub{color:var(--slate);max-width:480px;margin:0 auto 34px;font-size:17px}
+  .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+  footer.foot{padding:30px 0;text-align:center}
+  footer.foot p{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--slate);letter-spacing:.03em}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .glance{border-left:none;border-top:1px solid var(--hair);padding-left:0;padding-top:20px}
+    .caps{grid-template-columns:1fr 1fr;gap:32px}
+    .cred-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 22px}
+    .nav-links{position:fixed;inset:64px 0 auto 0;background:var(--paper);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--hair);
+      max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .nav-links.open{max-height:320px}
+    .nav-links a{padding:16px 22px;width:100%;border-bottom:1px solid var(--hair)}
+    .nav-links a.active::after{display:none}
+    .nav-toggle{display:block}
+    .caps{grid-template-columns:1fr}
+    .hero{padding:64px 0 56px}
+    section{padding:60px 0}
+    .sec-head{flex-direction:column;gap:8px;margin-bottom:34px}
+    .proj{padding:26px 24px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+  :focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:2px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="mark">MSH <span>Software&nbsp;Engineer</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--hair)">
+    <div class="wrap">
+      <p class="eyebrow">Full-Stack Software Engineer · Dhaka, Bangladesh</p>
+      <h1>Muhammad Sazzad<br><em>Hossain</em></h1>
+      <div class="underline"></div>
+      <p class="lede">I build <strong>multi-tenant SaaS products</strong> end to end — from data models and access control to the interfaces people use every day — across <strong>.NET</strong> and the <strong>MERN</strong> stack, with Dynamics&nbsp;365 and Azure.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:sazzadfahimse@gmail.com">Get in touch</a>
+        <a class="btn btn-ghost" href="Muhammad-Sazzad-Hossain-Resume.pdf">Résumé</a>
+        <a class="btn btn-ghost" href="https://github.com/Sazzadfahim" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/muhammad-sazzad/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="meta-row">
+        <span><b>Now</b> · Software Engineer, ImpleVista BD</span>
+        <span><b>Focus</b> · SaaS · Dynamics 365 · Azure</span>
+        <span><b>Open to</b> · D365 &amp; full-stack roles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">01 — About</span><h2>A dual-stack engineer who ships</h2></div>
+      <div class="about-grid reveal">
+        <div>
+          <p>I'm a software engineer with <strong>3+ years</strong> building and deploying enterprise products at <strong>ImpleVista BD</strong>. My work spans two stacks most people pick just one of — <strong>.NET with Angular</strong> on one side, <strong>React and Node.js</strong> on the other — which lets me own a feature from the database schema all the way to the screen.</p>
+          <p>Most of what I build is <strong>multi-tenant SaaS</strong>: systems where access control, tenant isolation, and reliable cloud deployment matter as much as the UI. I've also spent two years on <strong>Microsoft Dynamics 365</strong> as an offshore developer for an Australian consultancy, writing plugins, Azure Functions, and Power Platform automations.</p>
+          <p>Alongside the product work, I co-authored a <strong>peer-reviewed paper</strong> on CNN-based brain-tumor classification and hold two Microsoft Power Platform certifications.</p>
+        </div>
+        <div class="glance">
+          <div class="stat"><div class="num">3+</div><div class="lbl">years building software</div></div>
+          <div class="stat"><div class="num">4</div><div class="lbl">production products shipped</div></div>
+          <div class="stat"><div class="num">2</div><div class="lbl">Microsoft certifications</div></div>
+          <div class="stat"><div class="num">1</div><div class="lbl">peer-reviewed publication</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">02 — Selected Work</span><h2>Products I've built</h2></div>
+      <div class="work-list">
+
+        <article class="proj reveal">
+          <div class="proj-top">
+            <div class="proj-name">IV Trip</div>
+            <div class="proj-role">Full-stack · 2023–present</div>
+          </div>
+          <div class="proj-sub">Multi-tenant travel management platform</div>
+          <p>Engineered a <strong>role-based access system</strong> where each tenant's navigation and route permissions are generated at login from the database — no redeploys to change what a role can see. Built a <strong>visa-booking Kanban board</strong> and maintain a dual-backend, tenant-aware architecture with JWT auth and rate limiting.</p>
+          <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Redux Toolkit</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">MongoDB</span><span class="chip">Tailwind</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top">
+            <div class="proj-name">IVHR</div>
+            <div class="proj-role">Full-stack · 2023–present</div>
+          </div>
+          <div class="proj-sub">Construction HR &amp; project-management system</div>
+          <p>Built a <strong>document system with OCR-powered search</strong> — text is extracted from PDFs, images, and Word files on upload so any document is findable by keyword. Unified every file source into one <strong>Azure Blob</strong> library, designed the project/task data layer, and own the <strong>Azure CI/CD pipeline</strong> end to end.</p>
+          <div class="chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">Azure Blob</span><span class="chip">Azure Pipelines</span><span class="chip">Docker</span><span class="chip">OCR</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top">
+            <div class="proj-name">AvantCare</div>
+            <div class="proj-role">Dynamics 365 · 2024–Feb 2026</div>
+          </div>
+          <div class="proj-sub">Care-management solution · offshore for Illuminance Solutions, Perth</div>
+          <p>Developed and maintained <strong>Dynamics 365 plugins in C#/.NET</strong> and <strong>Azure Functions</strong> extending the platform with custom integrations, built embedded UI with Angular, React, and Power Apps, and automated workflows with Power Automate — collaborating with the Perth delivery team in Agile sprints.</p>
+          <div class="chips"><span class="chip">Dynamics 365</span><span class="chip">C# / .NET</span><span class="chip">Azure Functions</span><span class="chip">Power Apps</span><span class="chip">Power Automate</span><span class="chip">Angular</span></div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-top">
+            <div class="proj-name">CUBIS</div>
+            <div class="proj-role">Full-stack · 2023–present</div>
+          </div>
+          <div class="proj-sub">Fintech platform for a co-operative credit union league</div>
+          <p>Develop features across an <strong>ASP.NET Core</strong> backend and <strong>Angular</strong> frontend serving the organisation's financial operations, with a focus on code review, maintainability, and regulatory compliance.</p>
+          <div class="chips"><span class="chip">ASP.NET Core</span><span class="chip">C#</span><span class="chip">Angular</span><span class="chip">SQL Server</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">03 — Capabilities</span><h2>What I work with</h2></div>
+      <div class="caps reveal">
+        <div class="cap"><h3>Languages</h3><ul><li>C#</li><li>TypeScript</li><li>JavaScript</li></ul></div>
+        <div class="cap"><h3>Frontend</h3><ul><li>React</li><li>Angular</li><li>Redux Toolkit</li><li>Tailwind CSS</li></ul></div>
+        <div class="cap"><h3>Backend</h3><ul><li>ASP.NET Core</li><li>Node.js / Express</li><li>Mongoose</li><li>REST · OData</li></ul></div>
+        <div class="cap"><h3>Cloud &amp; DevOps</h3><ul><li>Azure App Service</li><li>Azure Functions · Blob</li><li>Azure Pipelines (CI/CD)</li><li>Docker · Git</li></ul></div>
+        <div class="cap"><h3>Data</h3><ul><li>MongoDB</li><li>SQL Server</li><li>Dataverse</li></ul></div>
+        <div class="cap"><h3>Microsoft Platform</h3><ul><li>Dynamics 365</li><li>Power Apps</li><li>Power Automate</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">04 — Credentials</span><h2>Certified &amp; published</h2></div>
+      <div class="cred-grid">
+        <div class="cred reveal">
+          <p class="eyebrow">Microsoft Certification</p>
+          <h4>Power Platform Developer Associate</h4>
+          <p>PL-400 · Microsoft Certified</p>
+        </div>
+        <div class="cred reveal">
+          <p class="eyebrow">Microsoft Certification</p>
+          <h4>Power Platform Fundamentals</h4>
+          <p>PL-900 · Microsoft Certified</p>
+        </div>
+        <div class="cred reveal">
+          <p class="eyebrow">Publication · Applied Sciences, 2023</p>
+          <h4>CNN-Based Classification of MRI Brain Tumors</h4>
+          <p style="margin-bottom:12px">A deep convolutional approach to classifying MRI-based brain tumors.</p>
+          <a class="docref" href="https://doi.org/10.3390/app13010312" target="_blank" rel="noopener">Read the paper ↗</a>
+        </div>
+        <div class="cred reveal">
+          <p class="eyebrow">Education</p>
+          <h4>B.Sc. in Computer Science &amp; Engineering</h4>
+          <p>East West University · Graduated January 2022</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">05 — Contact</p>
+      <h2>Let's build something.<br><a href="mailto:sazzadfahimse@gmail.com">sazzadfahimse@gmail.com</a></h2>
+      <p class="sub">Open to Dynamics 365 and full-stack engineering roles. The fastest way to reach me is email.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:sazzadfahimse@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/muhammad-sazzad/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/Sazzadfahim" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="tel:+8801348060558">+880 1348-060558</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap"><p>© <span id="yr"></span> Muhammad Sazzad Hossain · Built from scratch</p></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); toggle.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Active nav link
+  const navA = [...document.querySelectorAll('.nav-links a')];
+  const secs = navA.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s => spy.observe(s));
+</script>
+</body>
+</html>
